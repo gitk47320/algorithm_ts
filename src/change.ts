@@ -2,9 +2,9 @@
 const change = (): void => {
   const price: number = 37281;
   const payment: number = 63854;
-  let change = payment - price;
-  const coins = [10000, 5000, 1000, 500, 100, 50, 10, 5, 1];
-  const changeBills = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  let change: number = payment - price;
+  const coins: number[] = [10000, 5000, 1000, 500, 100, 50, 10, 5, 1];
+  const changeBills: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0];
   if (change < 0) {
     console.log("支払代金が不足しています");
   }
