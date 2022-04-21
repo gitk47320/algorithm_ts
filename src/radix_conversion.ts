@@ -1,14 +1,13 @@
-// 10進数→2進数
-const decimalToBinary = (decimal: number): number => {
-  let binary: string = "";
-  // 10進数→2進数変換
-  if (decimal === 0) binary = "0";
+// 10進数→n進数(n=2~9)
+const decimalToRadixConversion = (decimal: number, radix: number): number => {
+  let conv: string = "";
+  if (decimal === 0) conv = "0";
 
   while (decimal !== 0) {
-    binary = binary + (decimal % 2).toString();
-    decimal = Math.floor(decimal / 2);
+    conv = conv + (decimal % radix).toString();
+    decimal = Math.floor(decimal / radix);
   }
-  return Number(binary.split("").reverse().join(""));
+  return Number(conv.split("").reverse().join(""));
 };
 
 // 2進数→10進数
@@ -25,5 +24,6 @@ const binaryToDecimal = (binary: string): number => {
   return num;
 };
 
-console.log(decimalToBinary(19));
+// 例：10進数の19を3進数に変換する。
+console.log(decimalToRadixConversion(19, 3));
 console.log(binaryToDecimal("10011"));
