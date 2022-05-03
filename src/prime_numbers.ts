@@ -13,15 +13,17 @@ const isPrime = (n: number): void => {
 
   let compositList: number[] = [];
 
-  for (let i = 3; i <= n; i++) {
-    for (let j = 2; j <= sqrtN; j++) {
-      if (i % j === 0 && i > j) {
-        compositList.push(i);
+  for (let i = 2; i <= sqrtN; i++) {
+    for (let j = 3; j <= n; j++) {
+      // TODO: 以下条件のfalseをとって素数リストを求めたいがなぜかうまくいかないので
+      // 合成数のリストを求めたあと、後続処理でそれ以外のものを素数とした。
+      // 直接素数リストを求めるようにしたい。
+      if (j % i === 0 && j > i) {
+        compositList.push(j);
         continue;
       }
     }
   }
-  compositList = Array.from(new Set(compositList));
   let primeList = numberList.filter(
     (num) => compositList.indexOf(num) === -1
   );
