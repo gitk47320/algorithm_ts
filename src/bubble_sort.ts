@@ -3,9 +3,7 @@ const bubbleSort = (): void => {
   for (let i = 0; i < data.length; i++) {
     for (let j = 0; j < data.length - i - 1; j++) {
       if (data[j - 1] > data[j]) {
-        const tmp = data[j - 1];
-        data[j - 1] = data[j];
-        data[j] = tmp;
+        [ data[j - 1], data[j] ] = [ data[j], data[j - 1] ]
       }
     }
   }
